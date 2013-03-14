@@ -3,6 +3,7 @@ Celluloid::Redis
 [![Build Status](https://secure.travis-ci.org/celluloid/celluloid-redis.png?branch=master)](http://travis-ci.org/celluloid/celluloid-redis)
 [![Dependency Status](https://gemnasium.com/celluloid/celluloid-redis.png)](https://gemnasium.com/celluloid/celluloid-redis)
 [![Code Climate](https://codeclimate.com/github/celluloid/celluloid-redis.png)](https://codeclimate.com/github/celluloid/celluloid-redis)
+[![Coverage Status](https://coveralls.io/repos/celluloid/celluloid-redis/badge.png?branch=master)](https://coveralls.io/r/celluloid/celluloid-redis)
 
 A [Celluloid::IO][celluloidio]-based connection backend for the
 [redis-rb][redisrb] gem, providing "evented" connection support that can
