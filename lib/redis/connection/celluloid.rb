@@ -15,10 +15,11 @@ class Redis
       ASTERISK = "*".freeze
 
       def self.connect(config)
+        # TODO: config[:timeout] support
         if config[:scheme] == "unix"
-          sock = ::Celluloid::IO::UNIXSocket.connect(config[:path], config[:timeout])
+          sock = ::Celluloid::IO::UNIXSocket.open(config[:path])
         else
-          sock = ::Celluloid::IO::TCPSocket.connect(config[:host], config[:port], config[:timeout])
+          sock = ::Celluloid::IO::TCPSocket.open(config[:host], config[:port])
         end
 
         new(sock)
