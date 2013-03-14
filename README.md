@@ -47,14 +47,26 @@ Or install it yourself as:
 
     $ gem install celluloid-redis
 
+Require it in your Ruby application with:
+
+    require 'celluloid/redis'
+
 ## Usage
 
-TODO: Write usage instructions here
+When instantiating the client object, specify `:celluloid`:
+
+```ruby
+redis = Redis.new(:driver => :celluloid)
+```
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+* Fork this repository on github
+* Make your changes and send us a pull request
+* If we like them we'll merge them
+* If we've accepted a patch, feel free to ask for commit access
+
+## License
+
+Copyright (c) 2013 Tony Arcieri. Distributed under the MIT License. See
+LICENSE.txt for further details.

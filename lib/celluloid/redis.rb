@@ -1,7 +1,4 @@
-require "celluloid/redis/version"
+require "redis"
 
-module Celluloid
-  module Redis
-    # Your code goes here...
-  end
-end
+require "celluloid/redis/version"
+require "celluloid/redis/redis_ext"
