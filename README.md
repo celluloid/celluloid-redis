@@ -15,26 +15,18 @@ Celluloid message protocol.
 
 ## Why?
 
-Is Celluloid going down the same path as EventMachine, requiring
-`Celluloid::IO`-specific support for each library that touches the network?
+Unlike EventMachine, Celluloid::IO ideally does not need to provide separate
+"Celluloid-enabled" versions of each and every library that ever does any kind
+of I/O, but can instead leverage dependency injection APIs that tell libraries
+to use `Celluloid::IO::TCPSocket` instead of `TCPSocket`.
 
-Ideally, no! `Celluloid::IO::TCPSocket` is a duck type of Ruby's `TCPSocket`,
-and where libraries provide a dependency injection API for the socket
-class to use, it should be possible to use `Celluloid::IO` as a drop-in
-replacement. An example of a library with an API like this is 'net/ssh',
-which allows an `option[:proxy]` which (though oddly named) allows the
-API user to dependency inject their own socket class.
+Unfortunately, the `redis-rb` gem is a bit gnarly and does a lot of strange
+things like monkeypatching its own subclasses of `TCPSocket` and `UNIXSocket`
+in attempts to add better timeout handling.
 
-The situation with redis-rb is a bit more... gnarly. Different socket
-backends are provided for Ruby versus JRuby, for example, and no
-dependency injection API is provided out-of-the-box.
-
-The goal of `celluloid-redis` is to provide a stable Redis connection
-backend which works across multiple Ruby platforms using a
-`Celluloid::IO`-based socket backend.
-
-Ideally this adapter can also leverage other Celluloid features to provide
-nifty things like timeouts that actually work!
+Rather than trying to inject itself into that mess, this gem provides
+`Redis::Connection::Celluloid` which seeks to be a drop-in replacement for
+`Redis::Connection::Ruby`.
 
 ## Installation
 
