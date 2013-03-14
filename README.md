@@ -1,14 +1,15 @@
 Celluloid::Redis
 ================
 
-INCOMPLETE: sorry folks, this is still a work in progress
+[![Build Status](https://secure.travis-ci.org/celluloid/celluloid-redis.png?branch=master)](http://travis-ci.org/celluloid/celluloid-redis)
+[![Dependency Status](https://gemnasium.com/celluloid/celluloid-redis.png)](https://gemnasium.com/celluloid/celluloid-redis)
 
-A [Celluloid::IO][cellio]-based connection backend for the [redis-rb][redisrb]
-gem, providing "evented" connection support that can multiplex long-lived
-blocking calls like pub/sub and blpop(rpush) with the Celluloid message
-protocol.
+A [Celluloid::IO][celluloidio]-based connection backend for the
+[redis-rb][redisrb] gem, providing "evented" connection support that can
+multiplex long-lived blocking calls like pub/sub and blpop(rpush) with the
+Celluloid message protocol.
 
-[cellio]: https://github.com/celluloid/celluloid-io
+[celluloidio]: https://github.com/celluloid/celluloid-io
 [redisrb]: https://github.com/redis/redis-rb
 
 ## Why?
