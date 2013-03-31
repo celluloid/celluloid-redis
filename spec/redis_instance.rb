@@ -13,11 +13,14 @@ class RedisInstance
 
   def stop 
     return unless @pid
-    Process.kill('SIGTERM', @pid)
+    begin
+      Process.kill('SIGTERM', @pid)
+    rescue Errno::ESRCH
+    end
   end
 
   def run
-    @pid = spawn(@opts[:cmd], "--port #{port}", [:out, :err] => '/dev/null')
+    @pid = spawn(@opts[:cmd], "--port #{port}", "--daemonize yes")
     wait_until_useable
   end
 
