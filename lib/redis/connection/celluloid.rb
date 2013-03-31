@@ -51,6 +51,7 @@ class Redis
 
       def read
         line = @sock.gets
+        raise Errno::ECONNRESET unless line
         reply_type = line.slice!(0, 1)
         format_reply(reply_type, line)
 
