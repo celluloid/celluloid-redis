@@ -14,4 +14,11 @@ describe Redis::Connection::Celluloid do
     redis.set(example_key, example_value)
     redis.get(example_key).should eq example_value
   end
+
+  it "cleanly shuts down an instance" do
+    with_new_instance do |instance|
+      redis = Redis.new(:port => instance.port, :driver => :celluloid)
+      expect { redis.shutdown }.not_to raise_error
+    end
+  end
 end
