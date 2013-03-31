@@ -12,6 +12,7 @@ class RedisInstance
   end
 
   def stop 
+    return unless @pid
     Process.kill('SIGTERM', @pid)
   end
 
