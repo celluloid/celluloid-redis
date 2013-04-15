@@ -21,4 +21,8 @@ describe Redis::Connection::Celluloid do
       expect { redis.shutdown }.not_to raise_error
     end
   end
+
+  it "times out when taking too long to connect" do
+    expect { Redis.new(:host => "10.255.255.254", :timeout => 0.1).ping }.to raise_error(Redis::CannotConnectError)
+  end
 end
