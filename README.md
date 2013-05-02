@@ -55,6 +55,13 @@ When instantiating the client object, specify `:celluloid`:
 redis = Redis.new(:driver => :celluloid)
 ```
 
+What also works:
+```ruby
+    require 'celluloid/redis'
+    require 'redis/connection/celluloid'
+```
+    
+
 ## Contributing
 
 * Fork this repository on github
