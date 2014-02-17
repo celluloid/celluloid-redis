@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "redis"
+  spec.add_runtime_dependency "redis", "3.0.5"
   spec.add_runtime_dependency "celluloid-io", ">= 0.13.0.pre"
 
   spec.add_development_dependency "bundler", "~> 1.3"
