@@ -4,6 +4,8 @@ require "redis_instance"
 require "coveralls"
 Coveralls.wear!
 
+RSpec.configure(&:disable_monkey_patching!)
+
 def with_new_instance(opts = {})
   begin
     instance = RedisInstance.new(opts)

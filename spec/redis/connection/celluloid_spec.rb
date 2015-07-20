@@ -1,6 +1,4 @@
-require "spec_helper"
-
-describe Redis::Connection::Celluloid do
+RSpec.describe Redis::Connection::Celluloid do
   let(:example_key)   { 'foobar' }
   let(:example_value) { 'baz' }
 
@@ -9,10 +7,10 @@ describe Redis::Connection::Celluloid do
 
     # FIXME: perhaps some better tests are in order here?
     redis.set(example_key, '')
-    redis.get(example_key).should eq ''
+    expect(redis.get(example_key)).to eq('')
 
     redis.set(example_key, example_value)
-    redis.get(example_key).should eq example_value
+    expect(redis.get(example_key)).to eq(example_value)
   end
 
   it "cleanly shuts down an instance" do
