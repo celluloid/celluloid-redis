@@ -1,5 +1,3 @@
-module Celluloid
-  module Redis
-    VERSION = "0.0.2"
-  end
+module CelluloidRedis
+  VERSION = "0.0.2"
 end
