@@ -15,3 +15,6 @@ matrix:
 
 notifications:
   irc: "irc.freenode.org#celluloid"
+
+services:
+  - redis-server
