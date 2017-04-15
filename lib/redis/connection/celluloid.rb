@@ -15,14 +15,28 @@ class Redis
       ASTERISK = "*".freeze
 
       def self.connect(config)
-        # TODO: config[:timeout] support
-        if config[:scheme] == "unix"
-          sock = ::Celluloid::IO::UNIXSocket.open(config[:path])
-        else
-          sock = ::Celluloid::IO::TCPSocket.open(config[:host], config[:port])
+        sock = with_timeout(config[:timeout]) do
+          if config[:scheme] == "unix"
+            ::Celluloid::IO::UNIXSocket.open(config[:path])
+          else
+            ::Celluloid::IO::TCPSocket.open(config[:host], config[:port])
+          end
         end
 
         new(sock)
+      end
+
+      def self.with_timeout(timeout, &block)
+        if timeout
+          begin
+            f = ::Celluloid::Future.new(&block)
+            f.value(timeout)
+          rescue ::Celluloid::TimeoutError
+            raise Redis::CannotConnectError
+          end
+        else
+          block.call
+        end
       end
 
       def initialize(sock)
