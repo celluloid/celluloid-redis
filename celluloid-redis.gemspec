@@ -5,7 +5,7 @@ require 'celluloid/redis/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "celluloid-redis"
-  spec.version       = CelluloidRedis::VERSION
+  spec.version       = Celluloid::Redis::VERSION
   spec.authors       = ["Tony Arcieri"]
   spec.email         = ["tony.arcieri@gmail.com"]
   spec.description   = "Celluloid::IO support for the redis-rb library"
