@@ -1,9 +1,9 @@
 Celluloid::Redis
 ================
-[![Gem Version](https://badge.fury.io/rb/celluloid-redis.png)](http://rubygems.org/gems/celluloid-redis)
-[![Build Status](https://secure.travis-ci.org/celluloid/celluloid-redis.png?branch=master)](http://travis-ci.org/celluloid/celluloid-redis)
-[![Code Climate](https://codeclimate.com/github/celluloid/celluloid-redis.png)](https://codeclimate.com/github/celluloid/celluloid-redis)
-[![Coverage Status](https://coveralls.io/repos/celluloid/celluloid-redis/badge.png?branch=master)](https://coveralls.io/r/celluloid/celluloid-redis)
+[![Gem Version](https://badge.fury.io/rb/celluloid-redis.svg)](http://rubygems.org/gems/celluloid-redis)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/celluloid/celluloid-io/blob/master/LICENSE.txt)
+[![Build Status](https://secure.travis-ci.org/celluloid/celluloid-redis.svg?branch=master)](http://travis-ci.org/celluloid/celluloid-redis)
+[![Maintained: no](https://img.shields.io/maintenance/no/2016.svg)](https://github.com/celluloid/celluloid/issues/779)
 
 A [Celluloid::IO][celluloidio]-based connection backend for the
 [redis-rb][redisrb] gem, providing "evented" connection support that can
