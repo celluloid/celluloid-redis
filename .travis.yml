@@ -1,3 +1,5 @@
+sudo: false
+
 rvm:
   - 1.9.3
   - 2.0.0
@@ -15,3 +17,6 @@ matrix:
 
 notifications:
   irc: "irc.freenode.org#celluloid"
+
+services:
+  - redis-server
